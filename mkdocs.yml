@@ -45,8 +45,8 @@ nav:
       - 5.1 Introduction [EN]: "restapi/introduction.md"
       #- Specifica OpenAPI e Swagger: "restapi/openapi.md"
       # - 5.2 Utilizzo: "restapi/utilizzo.md"
-      - 5.3 Overview [EN]: "restapi/overview.md"
-      - 5.4 Model [EN]:
+      - 5.2 Overview [EN]: "restapi/overview.md"
+      - 5.3 Model [EN]:
         - AdministratorBindingRequest: "restapi/model/AdministratorBindingRequest.md"
         - Favorite: "restapi/model/Favorite.md"
         - OrganizationAccess: "restapi/model/OrganizationAccess.md"
@@ -59,7 +59,7 @@ nav:
         - PlaceMovement: "restapi/model/PlaceMovement.md"
         - PlacePresenceCounter: "restapi/model/PlacePresenceCounter.md"
         - TimePerUserReport: "restapi/model/TimePerUserReport.md"
-      - 5.5 Api [EN]:
+      - 5.4 Api [EN]:
         - AccessApi: "restapi/api/AccessApi.md"
         - AdministratorApi: "restapi/api/AdministratorApi.md"
         - FavoriteApi: "restapi/api/FavoriteApi.md"

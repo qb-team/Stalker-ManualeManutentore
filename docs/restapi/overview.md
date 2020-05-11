@@ -1,4 +1,4 @@
-# 5.3 Overview of Stalker API
+# 5.2 Overview of Stalker API
 
 ## API endpoints
 HTTP request | Description
@@ -13,9 +13,9 @@ HTTP request | Description
 **GET** [**/administrator/permission/{administratorId}**](api/AdministratorApi.md#getPermissionList) | Gets the list of permission that an administrator has permissions to view/manage/own.
 **POST** [**/administrator/unbindadministrator**](api/AdministratorApi.md#unbindAdministratorFromOrganization) | Unbind an administrator to the organization.
 **PATCH** [**/administrator/updatepermission**](api/AdministratorApi.md#updateAdministratorPermission) | Update the permission for an already existent administrator in the organization.
-**POST** [**/favorite/addfavorite**](api/FavoriteApi.md#addFavoriteOrganization) | Adds a new organization to the user&#39;s favorite organization list.
+**POST** [**/favorite/addfavorite**](api/FavoriteApi.md#addFavoriteOrganization) | Adds a new organization to the user's favorite organization list.
 **GET** [**/favorite/{userId}**](api/FavoriteApi.md#getFavoriteOrganizationList) | Gets the list of favorite organizations of a user.
-**POST** [**/favorite/removefavorite**](api/FavoriteApi.md#removeFavoriteOrganization) | Removes the organization from the user&#39;s favorite organization list.
+**POST** [**/favorite/removefavorite**](api/FavoriteApi.md#removeFavoriteOrganization) | Removes the organization from the user's favorite organization list.
 **POST** [**/movement/track/organization**](api/MovementApi.md#trackMovementInOrganization) | Tracks the user movement inside the trackingArea of an organization.
 **POST** [**/movement/track/place**](api/MovementApi.md#trackMovementInPlace) | Tracks the user movement inside the trackingArea of a place of an organization.
 **GET** [**/organization/{organizationId}**](api/OrganizationApi.md#getOrganization) | Gets the available data for a single organization.
@@ -27,8 +27,8 @@ HTTP request | Description
 **DELETE** [**/place/{placeId}**](api/PlaceApi.md#deletePlace) | Deletes a place of an organization.
 **GET** [**/place/organization/{organizationId}**](api/PlaceApi.md#getPlaceListOfOrganization) | Returns the list of places of the organization.
 **PUT** [**/place**](api/PlaceApi.md#updatePlace) | Updates one or more properties of a place of an organization.
-**GET** [**/presence/organization/{organizationId}/counter**](api/PresenceApi.md#getOrganizationPresenceCounter) | Gets the number of people currently inside the organization&#39;s trackingArea.
-**GET** [**/presence/place/{placeId}/counter**](api/PresenceApi.md#getPlacePresenceCounter) | Gets the number of people currently inside the place&#39;s trackingArea.
+**GET** [**/presence/organization/{organizationId}/counter**](api/PresenceApi.md#getOrganizationPresenceCounter) | Gets the number of people currently inside the organization's trackingArea.
+**GET** [**/presence/place/{placeId}/counter**](api/PresenceApi.md#getPlacePresenceCounter) | Gets the number of people currently inside the place's trackingArea.
 **GET** [**/report/place/{placeId}**](api/ReportApi.md#getTimePerUserReport) | Gets the report of total time spent per user inside the place of an organization.
 
 

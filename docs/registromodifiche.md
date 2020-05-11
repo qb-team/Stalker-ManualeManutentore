@@ -1,7 +1,8 @@
 # Registro delle modifiche
 Versione | Data | Nominativo | Ruolo | Verificatore | Descrizione
 ------------- | ------------- | ------------- | ------------- | ------------- | -------------
-0.19.0 | 2020-05-10 | Enrico Salmaso | Progettista | | Aggiunta e verifica appendice glossario.
+0.19.0 | 2020-05-11 | Francesco Drago | Responsabile | Perin Federico | Approvazione del documento.
+0.19.0 | 2020-05-10 | Enrico Salmaso | Progettista | Davide Lazzaro | Aggiunta e verifica appendice glossario.
 0.18.0 | 2020-05-09 | Tommaso Azzalin | Progettista | Davide Lazzaro | Aggiunta e verifica della introduzione di §4 e §5.
 0.17.0 | 2020-05-09 | Federico Perin | Progettista | Tommaso Azzalin | Aggiunta e verifica appendice glossario.
 0.16.0 | 2020-05-09 | Federico Perin | Progettista | Davide Lazzaro | Aggiunta e verifica §1.1.
