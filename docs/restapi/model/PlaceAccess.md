@@ -1,4 +1,8 @@
 # PlaceAccess
+
+## Description
+Represents an access to a place of an organization made by an application user.
+
 ## Properties
 
 Name | Type | Description

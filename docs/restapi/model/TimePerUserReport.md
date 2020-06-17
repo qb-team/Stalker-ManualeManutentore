@@ -1,4 +1,7 @@
 # TimePerUserReport
+
+## Description
+It represents a row in the report generated for an user by the viewer administrator.
 ## Properties
 
 Name | Type | Description

@@ -1,4 +1,8 @@
 # Organization
+
+## Description
+Subject interested in tracking people's presence inside its own places, in either an anonymous or authenticated way.
+
 ## Properties
 
 Name | Type | Description

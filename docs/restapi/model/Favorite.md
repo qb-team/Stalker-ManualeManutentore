@@ -1,4 +1,8 @@
 # Favorite
+
+## Description
+Link between the user and the organization: only the organization which users set to be their favorite can track their movements.
+
 ## Properties
 
 Name | Type | Description

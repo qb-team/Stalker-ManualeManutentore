@@ -1,4 +1,8 @@
 # OrganizationAccess
+
+## Description
+Access to an organization.
+
 ## Properties
 
 Name | Type | Description

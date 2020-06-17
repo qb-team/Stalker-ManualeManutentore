@@ -112,7 +112,7 @@ Sia il file che la stringa vanno tenuti da parte, serviranno dopo nella spiegazi
 
 ## 4.2.11 Installazione
 Una volta scaricato il codice sorgente, si ottiene una cartella che contiene i seguenti file:
-![!Contenuto della cartella Stalker-Backend](/Immagini/Backend/Requisiti/contenuto.jpg)
+![!Contenuto della cartella Stalker-Backend](../Immagini/Backend/Requisiti/contenuto.jpg)
 
 <a name="contenuto-cartella"></a>
 
@@ -121,12 +121,11 @@ Come si può vedere dall'immagine, al suo interno sono presenti cinque cartelle 
 I file (in ordine di apparizione):
 
 - `checkstyle.xml`: Contiene la configurazione per avvisare, in fase di compilazione, di errori riguardanti l'analisi statica. Questi errori vengono solamente segnalati ma non impediscono la compilazione, seppur sia possibile configurarlo;
-- `docker-compose.yml`: Configurazione per Docker per poter lanciare assieme una serie di programmi (tra cui i sopra citati MySQL e Redis) necessari per l'esecuzione del backend, ma anche altri come l'interfaccia per MySQL **phpMyAdmin**. In futuro potrebbe contenere anche lo stesso eseguibile del backend;
-- `Dockerfile`: File per generare un'immagine di Docker a partire dal pacchetto .jar generato dal processo di compilazione. Non è obbligatorio usarlo;
-- `example.env`: File contenente variabili d'ambiente di esempio. **ATTENZIONE**: questo file deve essere clonato e chiamato `.env`. Il contenuto del file `.env` deve essere valorizzato con valori reali da utilizzare per eseguire il backend;
-- `example-firebase.json`: In realtà questo è un placeholder. Il sistema Stalker fornisce l'autenticazione ai suoi utenti e amministratori tramite Firebase Authentication, come precedentemente detto, presso cui gli utilizzatori dell'app utenti e della web-app amministratori si autenticano. Le richieste che questi inviano al backend (alle REST API) richiedono tutte che l'utilizzatore sia autenticato, per cui il backend ha bisogno di una connessione a Firebase attiva per verificare ciò. La configurazione sulla connessione a Firebase è contenuta in questo file. Per ottenere un file .json che faccia lo stesso lavoro del file che viene utilizzato dal sistema Stalker attualmente, seguire quanto indicato nella sezione [Firebase Authentication](#firebase-authentication). Se si desiderasse non utilizzare Firebase ma un altro sistema di autenticazione, anche auto-prodotto, visitare la sezione Sostituire Firebase nella pagina [Estendibilità](../estendibilita).
-- `generate-sources.sh`: Esegue la generazione del codice sorgente, come indicato in [YAML](#yaml) e in [Generazione codice sorgente](#generazione-codice-sorgente);
-- `ldaptest.sh`: Genera un server [OpenLDAP](https://www.openldap.org/) di test. Un requisito del capitolato d'appalto di Stalker consisteva nel permettere l'autenticazione degli utenti tramite LDAP, di conseguenza si è reso necessario avere un server LDAP di test su cui effettuare prove di autenticazione. A differenza di Firebase, il backend non dipende in alcun modo da LDAP e quindi non è necessario eseguire e/o utilizzare questo file;
+- `docker-compose.yml`: Configurazione per Docker per poter lanciare assieme una serie di programmi (tra cui i sopra citati MySQL e Redis) necessari per l'esecuzione del backend, ma anche altri come l'interfaccia per MySQL **phpMyAdmin**, oltre che l'eseguibile stesso del backend;
+- `Dockerfile`: File per generare un'immagine di Docker a partire dal pacchetto .jar generato dal processo di compilazione. Non è obbligatorio usarlo, specialmente durante lo sviluppo, ma è consigliato;
+- `example.env`: File contenente variabili d'ambiente di esempio. **ATTENZIONE**: questo file deve essere clonato e chiamato `.env` (perché da esso dipende l'esecuzione del backend e il funzionamento di *docker-compose*). Il contenuto del file `.env` deve essere valorizzato con valori reali da utilizzare per eseguire il backend;
+- `generate-sources.sh`: Script per la generazione del codice sorgente, come indicato in [YAML](#yaml) e in [Generazione codice sorgente](#generazione-codice-sorgente);
+- `ldaptest.sh`: Genera un server [OpenLDAP](https://www.openldap.org/) di test. Un requisito del capitolato d'appalto di *Stalker* consisteva nel permettere l'autenticazione degli utenti tramite LDAP, di conseguenza si è reso necessario avere un server LDAP di test su cui effettuare prove di autenticazione. Per soddisfare i requisiti del capitolato, LDAP viene utilizzato, ma è possibile sostituirlo con un altro sistema di autenticazione come indicato nella sezione Sostituire LDAP nella pagina [Estendibilità](../estendibilita);
 - `LICENSE`: Contiene la licenza di utilizzo del prodotto;
 - `pom.xml`: Contiene la configurazione del progetto Java, come indicato in [XML](#xml);
 - `README.md`: Contiene informazioni utili introduttive all'utilizzo del prodotto;
@@ -137,7 +136,9 @@ Le cartelle (in ordine di apparizione):
 - `containers`: Contiene le cartelle in cui vengono di default salvati i dati provenienti dai container Docker in esecuzione e della configurazione;
 - `database-schema`: Contiene lo schema del database MySQL;
 - `generated-sources`: Contiene la struttura di cartelle in cui viene generato il codice sorgente come indicato in [YAML](#yaml) e in [Generazione codice sorgente](#generazione-codice-sorgente);
+- `load-test`: Contiene un semplice file eseguibile con Python per effettuare test di carico sul backend. Per una breve introduzione su come configurarlo, vedere la sezione [Test di carico](#test-di-carico);
 - `openapi-config`: Contiene i file di configurazione per la generazione del codice sorgente;
+- `postman-collections`: Contiene dei file che se importati sul software [Postman](https://www.postman.com/) permettono di effettuare i test delle API (particolarmente utili durante lo sviluppo);
 - `src`: Contiene il codice sorgente del prodotto, sia quello di produzione (sotto-cartella main), che quello di test (sotto-cartella test).
 
 ### 4.2.11.2 Compilazione
@@ -175,19 +176,33 @@ mvn clean install package
 Ci sono attualmente due modi per eseguire il backend:
 
 - Tramite comando Maven;
-- Tramite pacchetto .jar.
+- Tramite pacchetto .jar;
+- Tramite Docker (consigliato).
 
 <a name="env-var-container"></a>
 
 ### 4.2.12.1 Variabili d'ambiente e container Docker
-Oltre al file .json di Firebase Authentication illustrato nella sezione [Firebase Authentication](#firebase-authentication), se si provasse ad eseguire il backend senza eseguire quanto segue in questa sezione il backend andrebbe in crash ancor prima di partire.
+Se si provasse ad eseguire il backend senza svolgere quanto segue in questa sezione il backend andrebbe in crash ancor prima di partire.
 
 Il framework con cui è realizzato il backend, [Spring](https://spring.io/), fa largo uso di configurazione e in particolare, nel backend di Stalker, è largamente usata. La configurazione di Spring dipende dal valore di alcuni variabili d'ambiente. La configurazione del backend si trova sia sotto forma di classi Java, che di un file chiamato `application.properties`, situato nella cartella scaricata, dentro: `src/main/resources`.
 Queste variabili d'ambiente, di cui si trova un esempio nel file `example.env`, vanno impostate nel file `.env` indicato in [Contenuto della cartella Stalker-Backend](#contenuto-cartella), dove viene illustrato il file.  
-In particolare, nelle due variabili:
+In particolare, nelle due variabili seguenti viene configurato Firebase:
 
-- FIREBASE_DATABASE_URL: Assegnare il valore della stringa precedentemente salvata;
-- GOOGLE_APPLICATION_CREDENTIALS: Assegnare il path assoluto alla posizione del file con estensione json precedentemente scaricato.
+- **FIREBASE_DATABASE_URL**: Assegnare il valore della stringa precedentemente salvata come indicato nella sezione [Firebase Authentication](#firebase-authentication);
+- **GOOGLE_APPLICATION_CREDENTIALS**: Assegnare il path assoluto alla posizione del file con estensione json precedentemente scaricato come indicato nella suddetta sezione.
+
+Altre due variabili importanti sono:
+
+- **LOCAL_URL**: Indirizzo IP o URL con cui si accede al backend durante lo sviluppo locale. Per esempio, la web-app (che è sviluppata in Angular) quando viene eseguita in modalità di sviluppo è disponibile localmente (in localhost) alla porta 4200, con protocollo HTTP. Conseguentemente il valore di LOCAL_URL dovrà essere: `http://localhost:4200`;
+- **REMOTE_URL**: Indirizzo IP o URL con cui si accede al backend da remoto, per esempio se il software è in produzione. Sempre riferendosi alla web-app, si dovrà inserire l'URL o IP a cui essa risulta disponibile (ovvero all'indirizzo completo che viene fornito all'amministratore per utilizzare l'interfaccia per amministratori).
+
+Infine, se si decide di utilizzare il protocollo HTTPS (altamente consigliato), è bene assegnare il valore alle seguenti variabili:
+
+- **SSL_ALIAS**: Alias di riferimento nella creazione del certificato;
+- **SSL_PSW**: Password del certificato;
+- **SSL_KEYSTORE**: Nome del file contenente il certificato (tipicamente l'estensione è di tipo .jks o .p12)
+
+Ovviamente sono valori che dipendono strettamente dal certificato SSL in possesso all'utilizzatore del backend. Per ulteriori informazioni su come non usare HTTPS (sconsigliato ma utile nello sviluppo in locale), riferirsi alla sezione [Rimuovere HTTPS](../estendibilita#rimuovere-https).
 
 Per caricare le variabili d'ambiente nella sessione di terminale corrente invocare il seguente comando (su sistemi Unix-like):
 ```bash
@@ -196,25 +211,26 @@ export $(cat .env | xargs)
 
 Su Windows è conveniente utilizzare il WSL per caricare le variabili d'ambiente (e di conseguenza eseguire il backend) oppure usare il programma Git Bash, fornito assieme all'installazione di Git.
 
-Una volta eseguito il precedente comando, eseguire anche il seguente, che si occupa di avviare le istanze di MySQL e Redis necessarie per la persistenza dei dati del backend:
+Una volta eseguito il precedente comando, eseguire anche il seguente, che si occupa di avviare le istanze di MySQL e Redis (eventualmente anche il backend, se si lascia il file così come scaricato) necessarie per la persistenza dei dati del backend:
 ```bash
-export docker-compose up
+docker-compose up
 ```
 
 Il comando avvia il backend ma rende il terminale indisponibile (ridirige l'output dei programmi). L'alternativa è avviare i programmi senza che l'output venga mostrato, con quest'altro comando:
 ```bash
-export docker-compose up -d
+docker-compose up -d
 ```
 
-Una volta che non è più necessario avere MySQL e Redis attivi, è possibile spegnerli con il comando:
+Una volta che non è più necessario avere attivi, è possibile spegnerli con il comando:
 ```bash
-export docker-compose down
+docker-compose down
 ```
 
+<a name="esecuzione-tramite-jar"></a>
 ### 4.2.12.2 Esecuzione tramite pacchetto .jar
 Eseguendo il processo indicato in [Creazione del pacchetto .jar](#creazione-pacchetto-jar), il file generato sarà `stalker-backend-*X.Y.Z*.jar`, in cui *X.Y.Z* corrisponde alla versione del backend una volta scaricato. Il file si trova nella cartella target, e si può eseguire lanciando il comando:
 ```bash
-java -jar stalker-backend-X.Y.Z.jar
+java -jar target/stalker-backend-X.Y.Z.jar
 ```
 
 ### 4.2.12.3 Esecuzione tramite Maven
@@ -222,3 +238,34 @@ Per eseguire il backend tramite Maven è necessario eseguire il seguente comando
 ```bash
 mvn spring-boot:run
 ```
+
+### 4.2.12.4 Esecuzione tramite Docker
+Eseguendo il processo indicato in [Creazione del pacchetto .jar](#creazione-pacchetto-jar), si ottiene il file eseguibile tramite Java, come in [Esecuzione tramite pacchetto .jar](#esecuzione-tramite-jar). Una volta fatto quanto indicato nelle sezioni appena menzionate, per eseguire il backend tramite Docker (o meglio docker-compose) è necessario eseguire il seguente comando:
+```bash
+docker-compose up [--build] [-d]
+```
+L'argomento `-d` è quello indicato fino ad ora per **docker-compose**, mentre `--build` forza Docker a ricostruire il container del backend a partire dal pacchetto .jar attualmente disponibile (altrimenti eseguirebbe l'immagine che trova disponibile sulla macchina, se la ha già disponibile).
+
+<a name="test-di-carico"></a>
+### 4.2.13 Test di carico
+Una richiesta del capitolato era eseguire test di carico per vedere quanto il sistema fosse in grado di reagire alle richieste. È quindi disponibile, nella cartella `load-test`, un file chiamato `locustfile.py` che esegue attraverso un tool per **Python** una serie di test di carico (lotti di richieste HTTP al backend contemporanee crescenti fino a un limite predefinito e con una rapporto di crescita preimpostata).
+Per utilizzarlo è ovviamente necessario connettersi a un'istanza del database funzionante e che accetti le CORS (Cross-Origin Request Sharing) dall'indirizzo da cui provengono le richieste del tool di test. Il tool in questione si chiama [Locust](https://locust.io/), e di default è disponibile all'indirizzo `http://localhost:8089`. Inoltre, va configurato con degli access token validi, ottenuti dal provider di autenticazione (nel caso di *qbteam*, Firebase) e con dati come gli id dell'organizzazione e del luogo validi. Infatti, i dati presenti sul file sono o vuoti o di esempio.
+
+Prima di poter eseguire il file è necessario avere Python installato. Per installarlo è possibile scaricare l'eseguibile di installazione dal [sito ufficiale](https://www.python.org/downloads/).   
+Successivamente, eseguire i seguenti comandi:
+```bash
+pip install locust
+pip install pytz
+```
+
+Infine, per eseguire il file è sufficiente invocare da terminale:
+```bash
+locust
+```
+
+Se il backend non è disponibile in locale, ovvero nella macchina cui si stanno facendo i test, si può specificare a che indirizzo (`URL`) è disponibile il backend in questo modo:
+```bash
+locust --host=URL
+```
+
+Per ulteriori informazioni sull'uso del tool Locust, recarsi alla [guida ufficiale](https://docs.locust.io/en/stable/).

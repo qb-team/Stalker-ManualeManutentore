@@ -69,6 +69,7 @@ Verificare che npm è già stato installato precede installato con il seguente c
 ```bash
 npm -v
 ```
+
 Se non fosse già installato, eseguire il seguente comando per farlo:
 ```bash
 npm install npm@latest -g
@@ -84,6 +85,7 @@ Ora che è stato installato Node.js e npm è possibile installare Angular 2+ att
 ```bash
 npm install @angular/cli
 ```
+
 ### 3.2.4.4 Bootstrap
 
 È una raccolta di strumenti liberi per la creazione di siti e applicazioni per il Web.
@@ -96,7 +98,6 @@ Per installare Bootstrap occorre utilizzare il comando:
 ```bash
 npm install bootstrap
 ```
-<br/>
 
 !!!info 
     Viene utilizzato JSON come formato per lo scambio di dati tra web-app e backend.
@@ -107,13 +108,13 @@ Il servizio Firebase viene utilizzato per gestire l'autenticazione dell'applicaz
 
 Per poterlo configurare innanzitutto bisogna creare un progetto in Firebase al seguente [link](https://console.firebase.google.com).
 
-![!Pagina di creazione del progetto Firebase](/Immagini/WebApp/Firebase1.png)
+![!Pagina di creazione del progetto Firebase](../Immagini/WebApp/Firebase1.png)
 
 Si verrà indirizzati nella pagina mostrata della immagine qui sopra. Per continua si clicchi sul bottone **Crea un progetto**, si aprirà un pagina dove verrà richiesto di inserire il nome del progetto, che si vuole creare, e di accettare alcune condizioni d'uso.
 
 Una volta concluso la creazione del progetto ci si troverà nella seguente schermata
 
-![!Registrazione dell'applicazione su Firebase](/Immagini/WebApp/Firebase2.png)
+![!Registrazione dell'applicazione su Firebase](../Immagini/WebApp/Firebase2.png)
 
 Per continuare, occorre registrate l'applicazione **Stalker-Admin** al servizio Firebase, per farlo si clicchi sul bottone cerchiato di rosso nell'immagine precedente.
 
@@ -121,7 +122,36 @@ Si aprirà una nuova pagina dove chiederà di inserire un nickname. Successivame
 
 Copiare dunque l'SDK all'interno del file `environment.ts` come mostrato nella seguente immagine:
 
-![!Environment di Firebase su TypeScript](/Immagini/WebApp/Firebase3.png)
+![!Environment di Firebase su TypeScript](../Immagini/WebApp/Firebase3.png)
+### 3.2.4.6 Cloudinary
+Per permettere il salvataggio dell'immagine del logo di ogni organizzazione viene utilizzato Cloudinary, un cloud storage che offre il servizio di archiviazione di immagini nel proprio cloud e ritornare un link per accedere all'immagine, questo link successivamente sarà salvato nel database di Stalker.
+
+Per poterlo configurare innanzitutto bisogna creare un account su [Cloudinary](https://cloudinary.com/users/register/free).
+
+Dopo di che, ci si troverà sulla dashboard di Cloudinary, come viene mostrato nella immagine qui sotto.
+
+![!Dashboard Cloudinary 1](../Immagini/WebApp/CloudinaryDashqb.png)
+
+Deve venire il salvato il valore del **Cloud name**, che si trova dove c'è la linea rossa nell'immagine sopra (nell'immagine è nascosto per ragioni di sicurezza), che serve alla web-app per accedere a Cloudinary.
+
+Successivamente si clicchi sulla rotellina cerchiata in rosso come mostra l'immagine qui sotto.
+
+![!Dashboard Cloudinary 2](../Immagini/WebApp/CloudinaryDashqb2.png)
+
+Dopo di che andate si clicchi sulla scritta **Upload** come mostrato nell'immagine sotto e scorrete verso il basso fino a quando si trova la sottosezione **Upload presets**.
+
+![!Dashboard Cloudinary 3](../Immagini/WebApp/CloudinaryDashqb3.png)
+
+Una volta arrivati nella sottosezione **Upload presets** va preso il nome di un upload preset, come mostrato nelle immagine qui sotto, che serve alla web-app per accedere a Cloudinary.
+
+!!! attention
+    Va preso un upload preset che abbia come valore del campo `mode` **Unsigned** e non **Signed**.
+
+![!Dashboard Cloudinary 4](../Immagini/WebApp/CloudinaryDashqb4.png)
+
+Infine, va aperta la cartella che contiene i file della web-app, aperto il file config.ts e inseriti i valori del **Cloud name** e del **Upload preset** precedentemente salvati.
+
+![!Dashboard Cloudinary 5](../Immagini/WebApp/CloudinaryDashqb5.png)
 
 ## 3.2.5 Reazione e configurazione dell'ambiente di sviluppo
 
@@ -129,8 +159,9 @@ Di seguito viene illustrato come creare e configurare l'ambiente di sviluppo in 
 
 Una volta installate tutte le tecnologie citate precedentemente, si apra il workspace del progetto precedentemente scaricato,
 si esegua il comando:
-
-    cd Stalker-Admin
+```bash
+cd Stalker-Admin
+```
 
 Tale comando porterà all'interno della cartella del progetto, dopo di che per avviare un server locale dove poter vedere ciò che si è sviluppato, sarà necessario utilizzare il seguente comando:
 
@@ -144,12 +175,14 @@ Scrivere poi nella barra di navigazione del proprio browser `http://localhost:42
 ## 3.2.6 Test
 
 Gli *unit test* sono stati codificati servendosi di *Jasmine*. Per installare Jasmine, sempre tramite *npm*, basterà lanciare il seguente comando:
-
-    npm install --save-dev jasmine
+```bash
+npm install --save-dev jasmine
+```
 
 Per eseguire i test si usa invece il comando:
-
-    ng test
+```bash
+ng test
+```
 
 volendo si può usare l'opzione `--code-coverage` per visualizzare statistiche  in merito alla copertura del codice.  
 L'esecuzione del comando precedente avvia *Karma* che aprirà una finestra del browser per visualizzare l'esito dei test. *Karma* aprirà il browser definito nel file `karma.conf.js`.

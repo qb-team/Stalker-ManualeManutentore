@@ -1,4 +1,8 @@
 # OrganizationMovement
+
+## Description
+Movement in an organization.
+
 ## Properties
 
 Name | Type | Description

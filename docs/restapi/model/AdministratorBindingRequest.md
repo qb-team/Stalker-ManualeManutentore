@@ -1,4 +1,8 @@
 # AdministratorBindingRequest
+
+## Description
+Request object for creating a new administrator account and binding it to the organization or just binding an already existent administrator.
+
 ## Properties
 
 Name | Type | Description

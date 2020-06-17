@@ -1,4 +1,8 @@
 # Permission
+
+## Description
+Represents what can or cannot do an administrator inside a specified organization.
+
 ## Properties
 
 Name | Type | Description

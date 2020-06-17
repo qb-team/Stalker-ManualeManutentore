@@ -1,4 +1,8 @@
 # PlaceMovement
+
+## Description
+Represents a movement in a place of an organization.
+
 ## Properties
 
 Name | Type | Description

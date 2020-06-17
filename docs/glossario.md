@@ -50,7 +50,7 @@ In ingegneria del software è una pratica che si applica in contesti in cui lo s
 È un progetto open source che automatizza il deployment di applicazioni all'interno di contenitori software, fornendo un'astrazione aggiuntiva grazie alla virtualizzazione a livello di sistema operativo di Linux.
 
 ### Drawer
-E' un sidebar che fornisce l'accesso a destinazioni e funzionalità dell'app, come il cambio di account. Il menu drawer si sovrappone al resto del contenuto, senza spostarlo. 
+È un sidebar che fornisce l'accesso a destinazioni e funzionalità dell'app, come il cambio di account. Il menu drawer si sovrappone al resto del contenuto, senza spostarlo. 
 
 ## E
 
@@ -79,7 +79,7 @@ Processo che permette l'individuazione geografica del luogo in cui si trova un d
 È un sistema di posizionamento e navigazione satellitare. Attraverso una rete dedicata di satelliti artificiali in orbita, fornisce a un terminale mobile o ricevitore GPS informazioni sulle sue coordinate geografiche e sul suo orario in ogni posto sulla Terra dove vi sia un contatto privo di ostacoli con almeno quattro satelliti del sistema.
 
 ### Gradle 
-È un sistema open source di compilazione che viene utilizzato per la automate building, i testing, le distribuizioni, ecc. Ogni progetto Android ha 
+È un sistema open source di compilazione che viene utilizzato per la automate building, i testing, le distribuzioni, ecc. Ogni progetto Android ha 
 bisogno di un Gradle per generare un apk dai file .java e .xml .
 
 ## I
@@ -104,7 +104,7 @@ Per ingresso presso un luogo di un'organizzazione si intende l'attività di spos
 
 ## L
 ### Librerie
-E' una raccolta di componenti che offrono servizi ad un livello di astrazione piuttosto basso, ovvero assemblare componenti semplici e predefiniti per ottenere strutture complesse specializzate.
+È una raccolta di componenti che offrono servizi ad un livello di astrazione piuttosto basso, ovvero assemblare componenti semplici e predefiniti per ottenere strutture complesse specializzate.
 
 ### Lightweight Directory Access Protocol (LDAP)
 È un protocollo standard per l'interrogazione e la modifica dei servizi di directory. Le informazioni vengono raggruppate e possono essere espresse come record di dati ed organizzate in maniera gerarchica.
@@ -117,6 +117,9 @@ Si intende un insieme di tutte le organizzazioni che utilizzano il servizio Stal
 
 ### Lista delle organizzazioni preferite
 Contiene una lista delle organizzazioni che l'utente ha deciso di inserire tra le sue preferite.
+
+### Locust
+Strumento basato su Python che permette, tramite un'interfaccia utente e degli script scritti in Python di effettuare test di carico con importanti numeri di utenti su un servizio web che espone delle API, nel caso di Stalker, il backend.
 
 ### Login
 Procedura di accesso effettuata dall'utente o dall'amministratore per accedere alla applicazione nel caso dell'utente, al Server nel caso dell'amministratore.

@@ -19,11 +19,23 @@ Bind an already existent administrator to the organization. Only web-app adminis
 
 Name | Type | Description 
 ------------- | ------------- | -------------
- **administratorBindingRequest** | [**AdministratorBindingRequest**](/restapi/model/AdministratorBindingRequest.md)|  |
+ **administratorBindingRequest** | [**AdministratorBindingRequest**](../model/AdministratorBindingRequest.md)|  |
 
-### Return type
+### Responses
+**201**  
+Administrator bound successfully. The permission record gets returned. [**Permission**](../model/Permission.md)
 
-[**Permission**](/restapi/model/Permission.md)
+**400**  
+Administrators cannot bind an administrator to an organization with permissions higher than theirs. Nothing gets returned.
+
+**401**  
+The administrator is not authenticated. Nothing gets returned.
+
+**403**  
+Users or administrator with viewer or manager permission cannot have access. Nothing gets returned.
+
+**404**  
+The organization or the administrator could not be found. Nothing gets returned.
 
 ### Authorization
 
@@ -43,11 +55,23 @@ Creates and binds a new administrator to the current organization.  Only web-app
 
 Name | Type | Description 
 ------------- | ------------- | -------------
- **administratorBindingRequest** | [**AdministratorBindingRequest**](/restapi/model/AdministratorBindingRequest.md)|  |
+ **administratorBindingRequest** | [**AdministratorBindingRequest**](../model/AdministratorBindingRequest.md)|  |
 
-### Return type
+### Responses
+**201**  
+Administrator created and bound successfully. The permission record gets returned. [**Permission**](../model/Permission.md)
 
-[**Permission**](/restapi/model/Permission.md)
+**400**  
+The administrator to be created has already an account. The process could not succeed. Nothing gets returned.
+
+**401**  
+The administrator is not authenticated. Nothing gets returned.
+
+**403**  
+Users or administrator with viewer or manager permission cannot have access. Nothing gets returned.
+
+**404**  
+The organization could not be found. Nothing gets returned.
 
 ### Authorization
 
@@ -69,9 +93,18 @@ Name | Type | Description
 ------------- | ------------- | -------------
  **organizationId** | **Long**| ID of an organization. The administrator must have at least owner permission to the organization.
 
-### Return type
+### Responses
+**200**  
+Administrators' information returned successfully. [**List**](../model/Permission.md)
 
-[**List**](/restapi/model/Permission.md)
+**401**  
+The administrator is not authenticated. Nothing gets returned.
+
+**403**  
+Users or administrator with viewer or manager permission cannot have access. Nothing gets returned.
+
+**404**  
+The organization could not be found. Nothing gets returned.
 
 ### Authorization
 
@@ -79,7 +112,7 @@ Name | Type | Description
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 <a name="getPermissionList"></a>
@@ -93,9 +126,18 @@ Name | Type | Description
 ------------- | ------------- | -------------
  **administratorId** | **String**| ID of the administrator. It must be the same of the administratorId of the authenticated administrator.
 
-### Return type
+### Responses
+**200**  
+List of permissions returned successfully. [**List**](../model/Permission.md)
 
-[**List**](/restapi/model/Permission.md)
+**204**  
+List of permissions is empty. Nothing gets returned.
+
+**401**  
+The user or the administrator is not authenticated. Nothing gets returned.
+
+**403**  
+Administrators cannot have access. Nothing gets returned.
 
 ### Authorization
 
@@ -103,7 +145,7 @@ Name | Type | Description
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 <a name="unbindAdministratorFromOrganization"></a>
@@ -115,11 +157,20 @@ Unbind an administrator to the organization. Only web-app administrators can acc
 
 Name | Type | Description 
 ------------- | ------------- | -------------
- **permission** | [**Permission**](/restapi/model/Permission.md)|  |
+ **permission** | [**Permission**](../model/Permission.md)|  |
 
-### Return type
+### Responses
+**204**  
+Administrator unbound successfully. Nothing gets returned.
 
-null (empty response body)
+**401**  
+The administrator is not authenticated. Nothing gets returned.
+
+**403**  
+Users or administrator with viewer or manager permission cannot have access. Nothing gets returned.
+
+**404**  
+The permission record could not be found. Nothing gets returned.
 
 ### Authorization
 
@@ -128,7 +179,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 <a name="updateAdministratorPermission"></a>
 ## **PATCH** /administrator/updatepermission
@@ -139,11 +190,23 @@ Update the permission for an already existent administrator in the organization.
 
 Name | Type | Description 
 ------------- | ------------- | -------------
- **permission** | [**Permission**](/restapi/model/Permission.md)|  |
+ **permission** | [**Permission**](../model/Permission.md)|  |
 
-### Return type
+### Responses
+**201**  
+Administrator's permissions updated successfully. The permission record gets returned. [**Permission**](../model/Permission.md)
 
-[**Permission**](/restapi/model/Permission.md)
+**400**  
+Only the permission can be changed. The request was not satisfied. Nothing gets returned.
+
+**401**  
+The administrator is not authenticated. Nothing gets returned.
+
+**403**  
+Users or administrator with viewer or manager permission cannot have access. Nothing gets returned.
+
+**404**  
+The organization or the administrator could not be found. Nothing gets returned.
 
 ### Authorization
 

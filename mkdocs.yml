@@ -1,5 +1,5 @@
-site_name: Manuale Manutentore 0.19.0 | Stalker
-repo_url: https://github.com/qb-team/Stalker-Documentazione/
+site_name: Manuale Manutentore 0.35.0 | Stalker
+repo_url: https://github.com/qb-team/Stalker-ManualeManutentore/
 
 theme:
   name: material
@@ -22,7 +22,7 @@ nav:
       - 2.2 Requisiti e installazione: "app/requisiti.md"
       - 2.3 Estendibilità: "app/estendibilita.md"
       - 2.4 Architettura: "app/architettura.md"
-      - 2.5 Package: "app/package.md"
+      - 2.5 Diagrammi dei package: "app/package.md"
       - 2.6 Diagrammi delle classi: "app/classi.md"
       - 2.7 Diagrammi di sequenza: "app/sequenza.md"
   - 3 Web-app amministratori:
@@ -30,7 +30,7 @@ nav:
       - 3.2 Requisiti e installazione: "webapp/requisiti.md"
       - 3.3 Estendibilità: "webapp/estendibilita.md"
       - 3.4 Architettura: "webapp/architettura.md"
-      - 3.5 Package: "webapp/package.md"
+      - 3.5 Diagrammi dei package: "webapp/package.md"
       - 3.6 Diagrammi delle classi: "webapp/classi.md"
       - 3.7 Diagrammi di sequenza: "webapp/sequenza.md"
   - 4 Backend:
@@ -38,30 +38,35 @@ nav:
       - 4.2 Requisiti e installazione: "backend/requisiti.md"
       - 4.3 Estendibilità: "backend/estendibilita.md"
       - 4.4 Architettura: "backend/architettura.md"
-      - 4.5 Package: "backend/package.md"
+      - 4.5 Diagrammi dei package: "backend/package.md"
       - 4.6 Diagrammi delle classi: "backend/classi.md"
       - 4.7 Diagrammi di sequenza: "backend/sequenza.md"
   - 5 REST API:
-      - 5.1 Introduction [EN]: "restapi/introduction.md"
-      #- Specifica OpenAPI e Swagger: "restapi/openapi.md"
-      # - 5.2 Utilizzo: "restapi/utilizzo.md"
-      - 5.2 Overview [EN]: "restapi/overview.md"
-      - 5.3 Model [EN]:
+      - 5.1 Introduction [en]: "restapi/introduction.md"
+      - 5.2 Requirements [en]: "restapi/requirements.md"
+      - 5.3 OpenAPI [en]: "restapi/openapi.md"
+      - 5.4 Overview [en]: "restapi/overview.md"
+      - 5.5 Model [en]:
         - AdministratorBindingRequest: "restapi/model/AdministratorBindingRequest.md"
         - Favorite: "restapi/model/Favorite.md"
-        - OrganizationAccess: "restapi/model/OrganizationAccess.md"
         - Organization: "restapi/model/Organization.md"
+        - OrganizationAccess: "restapi/model/OrganizationAccess.md"
+        - OrganizationAuthenticationServerCredentials: "restapi/model/OrganizationAuthenticationServerCredentials.md"
+        - OrganizationAuthenticationServerInformation: "restapi/model/OrganizationAuthenticationServerInformation.md"
+        - OrganizationAuthenticationServerRequest: "restapi/model/OrganizationAuthenticationServerRequest.md"
+        - OrganizationDeletionRequest: "restapi/model/OrganizationDeletionRequest.md"
         - OrganizationMovement: "restapi/model/OrganizationMovement.md"
         - OrganizationPresenceCounter: "restapi/model/OrganizationPresenceCounter.md"
         - Permission: "restapi/model/Permission.md"
-        - PlaceAccess: "restapi/model/PlaceAccess.md"
         - Place: "restapi/model/Place.md"
+        - PlaceAccess: "restapi/model/PlaceAccess.md"
         - PlaceMovement: "restapi/model/PlaceMovement.md"
         - PlacePresenceCounter: "restapi/model/PlacePresenceCounter.md"
         - TimePerUserReport: "restapi/model/TimePerUserReport.md"
-      - 5.4 Api [EN]:
+      - 5.6 API [en]:
         - AccessApi: "restapi/api/AccessApi.md"
         - AdministratorApi: "restapi/api/AdministratorApi.md"
+        - AuthenticationServerApi: "restapi/api/AuthenticationServerApi.md"
         - FavoriteApi: "restapi/api/FavoriteApi.md"
         - MovementApi: "restapi/api/MovementApi.md"
         - OrganizationApi: "restapi/api/OrganizationApi.md"

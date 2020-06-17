@@ -17,9 +17,18 @@ Name | Type | Description
 ------------- | ------------- | -------------
  **organizationId** | **Long**| ID of an organization.
 
-### Return type
+### Responses
+**200**  
+Organization presence counter returned successfully. [**OrganizationPresenceCounter**](../model/OrganizationPresenceCounter.md)
 
-[**OrganizationPresenceCounter**](/restapi/model/OrganizationPresenceCounter.md)
+**401**  
+The administrator is not authenticated. Nothing gets returned.
+
+**403**  
+Users cannot access this end-point. Nothing gets returned.
+
+**404**  
+The organization could not be found. Nothing gets returned.
 
 ### Authorization
 
@@ -27,7 +36,7 @@ Name | Type | Description
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 <a name="getPlacePresenceCounter"></a>
@@ -41,9 +50,18 @@ Name | Type | Description
 ------------- | ------------- | -------------
  **placeId** | **Long**| ID of a place.
 
-### Return type
+### Responses
+**200**  
+Place presence counter returned successfully. [**PlacePresenceCounter**](../model/PlacePresenceCounter.md)
 
-[**PlacePresenceCounter**](/restapi/model/PlacePresenceCounter.md)
+**401**  
+The administrator is not authenticated. Nothing gets returned.
+
+**403**  
+Users cannot access this end-point. Nothing gets returned.
+
+**404**  
+The place could not be found. Nothing gets returned.
 
 ### Authorization
 
@@ -51,6 +69,6 @@ Name | Type | Description
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 

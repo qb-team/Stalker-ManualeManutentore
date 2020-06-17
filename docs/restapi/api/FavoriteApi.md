@@ -16,11 +16,23 @@ Adds a new organization to the user's favorite organization list. If the organiz
 
 Name | Type | Description 
 ------------- | ------------- | -------------
- **favorite** | [**Favorite**](/restapi/model/Favorite.md)|  |
+ **favorite** | [**Favorite**](../model/Favorite.md)|  |
 
-### Return type
+### Responses
+**201**  
+Organization successfully added to the list of favorite. The favorite record just added (including the organization) gets returned. [**Favorite**](../model/Favorite.md)
 
-[**Favorite**](/restapi/model/Favorite.md)
+**400**  
+The user already added the organization to the list of favorite organizations.
+
+**401**  
+The user is not authenticated. Nothing gets returned.
+
+**403**  
+Users who did not bind their account with their organization's account and administrators cannot have access. Nothing gets returned.
+
+**404**  
+The organization could not be found. Nothing gets returned.
 
 ### Authorization
 
@@ -42,9 +54,21 @@ Name | Type | Description
 ------------- | ------------- | -------------
  **userId** | **String**| ID of the user. It must be the same of the userId of the authenticated user.
 
-### Return type
+### Responses
+**200**  
+List of favorite organizations returned successfully. [**List**](../model/Organization.md)
 
-[**List**](/restapi/model/Organization.md)
+**204**  
+List of favorite organizations is empty. Nothing gets returned.
+
+**400**  
+The supplied userId is incorrect. Nothing gets returned.
+
+**401**  
+The user or the administrator is not authenticated. Nothing gets returned.
+
+**403**  
+Administrators cannot have access. Nothing gets returned.
 
 ### Authorization
 
@@ -52,7 +76,7 @@ Name | Type | Description
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 <a name="removeFavoriteOrganization"></a>
@@ -64,11 +88,20 @@ Removes the organization from the user's favorite organization list. Only app us
 
 Name | Type | Description 
 ------------- | ------------- | -------------
- **favorite** | [**Favorite**](/restapi/model/Favorite.md)|  |
+ **favorite** | [**Favorite**](../model/Favorite.md)|  |
 
-### Return type
+### Responses
+**205**  
+Organization successfully removed from the list of favorites.
 
-null (empty response body)
+**401**  
+The user is not authenticated. Nothing gets returned.
+
+**403**  
+Administrators cannot have access. Nothing gets returned.
+
+**404**  
+The favorite was not found, hence it was not removed. Nothing gets returned.
 
 ### Authorization
 
@@ -77,5 +110,5 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 

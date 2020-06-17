@@ -87,7 +87,7 @@ Per poterla utilizzare è necessario aggiungere nel file *build.gradle(:app)* la
 ```bash
 implementation files('libs/urlimageviewhelper-1.0.4.jar')
 ```
-E' necessario scaricare e includere il file eseguibile *urlimageviewhelper-1.0.4.jar*.
+È necessario scaricare e includere il file eseguibile *urlimageviewhelper-1.0.4.jar*.
 La documentazione viene fornita nel seguente [link](https://github.com/koush/UrlImageViewHelper).
 
 <a name="source-code-management"></a>

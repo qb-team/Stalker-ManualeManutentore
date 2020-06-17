@@ -1,4 +1,8 @@
 # Place
+
+## Description
+Area of an organization subjected to tracking.
+
 ## Properties
 
 Name | Type | Description

@@ -1,4 +1,8 @@
 # OrganizationPresenceCounter
+
+## Description
+Number of people currently inside the organization's trackingArea.
+
 ## Properties
 
 Name | Type | Description
