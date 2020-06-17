@@ -73,7 +73,7 @@ L'utente per registrarsi deve:
 - Infine cliccare il pulsante "Registrati".
 Una volta cliccato il pulsante vengono invocati i metodi della libreria Firebase che ti registrano nel sistema ed eseguono automaticamente il Login.
 
-La classe SignUpFragment offre i seguenti metodi:
+La classe `SignUpFragment` offre i seguenti metodi:
 
 -   `onCreate(savedInstanceState: Bundle)`:  Si occupa della creazione del fragment in quanto componente;
 
@@ -96,7 +96,7 @@ La classe SignUpFragment offre i seguenti metodi:
 
 ## 2.6.5 Home Page Activity
 ![!HomePageActivity](../Immagini/App/Classi/HomePageActivity.jpg "Diagramma della classe Home Page Activity")
-<figcaption align="center"> <em> Diagramma della classe Home Page Activity</em> </figcaption>
+<div><figcaption align="center"> <em> Diagramma della classe Home Page Activity</em> </figcaption>
 </div>
 
 La classe `HomePageActivity` è l'Activity principale da cui vengono istanziati i fragment riguardanti l'action tab `ActionTabFragment`, la lista delle organizzazioni `HomeFragment` e la lista dei preferiti/MyStalker `MyStalkersListFragment`.
@@ -150,7 +150,7 @@ La classe `HomePageActivity` offre i seguenti metodi:
 La classe `ActionTabFragment` gestisce la view page principale dell'applicazione la quale contiene le due view principali ovvero: `HomeFragment` e `MyStalkerFragment`.
 Si occupa inoltre di gestire il menu bar principale che permette all'utente di navigare tra le pagine dell'applicazione.
 
-La classe ActionTabFragment offre i seguenti metodi:
+La classe `ActionTabFragment` offre i seguenti metodi:
 
 -   `onCreate(savedInstanceState: Bundle)`:  Si occupa della creazione del fragment in quanto componente;
 
@@ -172,7 +172,7 @@ La classe ActionTabFragment offre i seguenti metodi:
 
 ## 2.6.7 Home 
 ![!HomeFragment](../Immagini/App/Classi/HomeFragment.jpg "Diagramma della classe Home")
-<figcaption align="center"> <em> Diagramma della classe Home</em> </figcaption>
+<div><figcaption align="center"> <em> Diagramma della classe Home</em> </figcaption>
 </div>
 
 Se l'utente risulta essere già autenticato e avvia l'applicazione, oppure ha appena effettuato l'autenticazione, allora gli viene mostrato automaticamente la classe view del `HomeFragment`. In questa classe compariranno tutte le organizzazioni presenti nel server. L'utente ha la possibilità di aggiornare la lista oppure di scaricarla se dovessero incombere dei problemi.
@@ -264,13 +264,13 @@ La classe `MyStalkerListFragment` offre i seguenti metodi:
 
 ## 2.6.9 Standard Organization
 ![!StandardOrganizationFragment](../Immagini/App/Classi/StandardOrganizationFragment.jpg "Diagramma della classe Standard Organization")
-<figcaption align="center"> <em> Diagramma della classe Standard Organization</em> </figcaption>
+<div><figcaption align="center"> <em> Diagramma della classe Standard Organization</em> </figcaption>
 </div>
 
 La classe `StandardOrganizationFragment` rappresenta la pagina dedicata alle organizzazioni pubbliche, cioè quelle che non richiedono credenziali di autenticazione LDAP. La vista contiene le informazioni riferite all'organizzazione.
 Qualora l'organizzazione dovesse essere aggiunta nella lista `MyStalkers` allora comparirà al suo interno una sezione che mostra se l'utente è dentro o fuori l'organizzazione.
 
-La classe StandardOrganizationFragment offre i seguenti metodi:
+La classe `StandardOrganizationFragment` offre i seguenti metodi:
 
 -   `onAttach(context: Context)`: Assicura che l'attività abbia effettivamente implementato il nostro listener e che esso non sia nulla;
 
