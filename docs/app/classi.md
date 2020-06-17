@@ -58,7 +58,7 @@ La classe `LoginFragment` utilizza le librerie di Firebase per consentire all'ut
 
 -   `onSendEmailSuccess() `: Metodo che avvisa l'utente tramite Toast che arriverà una mail per poter resettare la password.
 
-## 2.6.4 SignUp
+## 2.6.3 SignUp
 <div align="center">
 ![!SignUpFragment](../Immagini/App/Classi/SignUpFragment.jpg "Diagramma della classe SignUp")
 <figcaption align="center"> <em> Diagramma della classe SignUp </em> </figcaption>
@@ -94,7 +94,7 @@ La classe `SignUpFragment` offre i seguenti metodi:
 -   `onBackPressed()`: Si occupa di far ritornare l'utente alla precedente Activity/Fragment.
 
 
-## 2.6.5 Home Page Activity
+## 2.6.4 Home Page Activity
 ![!HomePageActivity](../Immagini/App/Classi/HomePageActivity.jpg "Diagramma della classe Home Page Activity")
 <div><figcaption align="center"> <em> Diagramma della classe Home Page Activity</em> </figcaption>
 </div>
@@ -141,7 +141,7 @@ La classe `HomePageActivity` offre i seguenti metodi:
  
 - `getTabLayout()`: Metodo che restituisce il TabLayout;
 
-## 2.6.6 ActionTab
+## 2.6.5 ActionTab
 <div align="center">
 ![!ActionTabFragment](../Immagini/App/Classi/ActionTabFragment.jpg "Diagramma della classe Action Tab")
 <figcaption align="center"> <em> Diagramma della classe Action Tab </em> </figcaption>
@@ -170,7 +170,7 @@ La classe `ActionTabFragment` offre i seguenti metodi:
 
 - `disableScroll(enable: boolean)` : Metodo che impedisce all'utente di passare da un tab all'altro.
 
-## 2.6.7 Home 
+## 2.6.6 Home 
 ![!HomeFragment](../Immagini/App/Classi/HomeFragment.jpg "Diagramma della classe Home")
 <div><figcaption align="center"> <em> Diagramma della classe Home</em> </figcaption>
 </div>
@@ -217,7 +217,7 @@ La classe `HomeFragment` offre i seguenti metodi:
 
 -   `onBackPressed()`: Si occupa di far ritornare l'utente alla precedente Activity/Fragment.
 
-## 2.6.8 MyStalkersList
+## 2.6.7 MyStalkersList
 <div align="center">
 ![!MyStalkersListFragment](../Immagini/App/Classi/MyStalkerListFragment.jpg "Diagramma della classe My Stalker List")
 <figcaption align="center"> <em> Diagramma della classe My Stalkers List </em> </figcaption>
@@ -262,7 +262,7 @@ La classe `MyStalkerListFragment` offre i seguenti metodi:
 
 - `onBackPressed()`: Si occupa di fa ritornare l'utente alla precedente Activity/Fragment.
 
-## 2.6.9 Standard Organization
+## 2.6.8 Standard Organization
 ![!StandardOrganizationFragment](../Immagini/App/Classi/StandardOrganizationFragment.jpg "Diagramma della classe Standard Organization")
 <div><figcaption align="center"> <em> Diagramma della classe Standard Organization</em> </figcaption>
 </div>
@@ -284,7 +284,7 @@ La classe `StandardOrganizationFragment` offre i seguenti metodi:
 
 -   `onClick(View v)`: Attende un click dell'utente al pulsante indicato da un orologio per poter visualizzare l'ultimo accesso effettuato dall'utente nell'organizzazione standard selezionata.
 
-## 2.6.10 LDAPOrganization
+## 2.6.9 LDAPOrganization
 <div align="center">
 ![!LDAPorganizationFragment](../Immagini/App/Classi/LDAPOrganizationFragment.jpg "Diagramma della classe LDAP Organization")
 <figcaption align="center"> <em> Diagramma della classe LDAP Organization </em> </figcaption>
@@ -315,7 +315,7 @@ Essa offre i seguenti metodi:
 
 -   `onFailureLdap()`: L'autenticazione è fallita e viene comunicato l'esito all'utente tramite Toast.
 
-## 2.6.11 AccessHistory
+## 2.6.10 AccessHistory
 <div align="center">
 ![!AccessHistoryFragment](../Immagini/App/Classi/AccessHistoryFragment.jpg "Diagramma della classe Access History")
 <figcaption align="center"> <em> Diagramma della classe Access History </em> </figcaption>
@@ -353,7 +353,7 @@ La classe `AccessHistoryFragment` offre i seguenti metodi:
 
 -  `dateCreasingOrder(list: List<OrganizationAccess>)`: Ordina per data crescente gli elementi della lista degli accessi.
 
-## 2.6.12 PlaceAccess
+## 2.6.11 PlaceAccess
 <div align="center">
 ![!PlaceAccessFragment](../Immagini/App/Classi/PlaceAccessFragment.jpg "Diagramma della classe Place Access")
 <figcaption align="center"> <em> Diagramma della classe Place Access</em> </figcaption>
